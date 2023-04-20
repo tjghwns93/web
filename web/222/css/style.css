@@ -1,0 +1,315 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* reset */
+li {
+    list-style: none;
+    /* 블릿기호삭제 */
+}
+
+a {
+    text-decoration: none;
+    /* 밑줄빼기 */
+    color: #333;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+/* wrap */
+#wrap {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+#header {}
+
+#header h1 {
+    float: left;
+    width: 110px;
+    padding: 15px 0 0;
+}
+
+#header h1 a {}
+
+#header h1 a img {
+    /* 인라인요소는 공간을 인식하지 못함
+    width:2000px 값을 줘서 적용되지 않음
+    그런데 인라인요소이면서 공간을 인식하는
+    요소가 있어음 --> img,button */
+    width: 100%;
+}
+
+#header .nav {
+    float: right;
+    background-color: #ddd;
+}
+
+#header .nav ul {}
+
+#header .nav ul li {
+    position: relative;
+    float: left;
+    width: 140px;
+    text-align: center;
+    /* 나의 자식중에서 inline요소가 있거든 가운데로 정렬하라 */
+}
+
+#header .nav ul li a {
+    display: block;
+    padding: 24px 20px 20px;
+    transition: 0.3s;
+}
+
+#header .nav ul li a:hover {
+    /* :hover은 마우스가 영역에 진입하면 */
+    background-color: #ccc;
+}
+
+#header .nav ul li .submenu {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 65px;
+    z-index: 2;
+}
+
+#header .nav ul li .submenu li {}
+
+#header .nav ul li .submenu li a {
+    background-color: #888;
+    padding: 10px;
+    color: #fff;
+}
+
+#header .nav ul li .submenu li a:hover {
+    background-color: #666;
+}
+
+/* banner */
+#banner {
+    overflow: hidden;
+}
+
+#banner .slidelist {
+    position: relative;
+    width: 3000px;
+}
+
+#banner .slidelist .slideImg {
+    width: 1000px;
+    position: relative;
+    float: left;
+}
+
+#banner .slidelist .slideImg h2 {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, .4);
+    padding: 10px 30px;
+    border-radius: 20px;
+    color: #fff;
+}
+
+#banner .slidelist .slideImg img {
+    width: 100%;
+    /* img태그에 아래쪽에 빈틈 처리
+    원인:img태그가 인라인요소이기때문
+    1. display:block;
+    2. vertical-align:top */
+    display: block;
+}
+
+/* content1 */
+#content1 {
+    margin-top: 20px;
+}
+
+#content1 .left {
+    float: left;
+    width: 49%;
+    background-color: #f2f2f2;
+    background-image: url(../img/bg1.jpg);
+    background-repeat: no-repeat;
+    background-size: 80px;
+    /* background-position: x값 y값; */
+    background-position: right 20px center;
+
+    /* background: color image repeat position/size; */
+    background: #f2f2f2 url(../img/bg1.jpg) no-repeat right 20px center/80px;
+    padding: 20px;
+    box-sizing: border-box;
+
+}
+
+#content1 .title {
+    font-size: 22px;
+    padding-bottom: 5px;
+
+}
+
+#content1 .desc {
+    font-size: 14px;
+    color: #666;
+    padding-bottom: 15px;
+}
+
+#content1 .left .btn {
+    background: url(../img/icon1.jpg)no-repeat left center;
+    background-size: 20px;
+    padding-left: 20px;
+
+}
+
+#content1 .right {
+    float: right;
+    width: 49%;
+    /* background:color image repeat position/size; */
+    background: #f2f2f2 url(../img/bg2.jpg)no-repeat right 20px center;
+    background-size: 80px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#content1 .right .btn {
+    background: url(../img/icon2.jpg)no-repeat left center;
+    background-size: 20px;
+    padding-left: 25px;
+}
+
+#content1 .right .btn em {}
+
+/* content2 */
+#content2 {
+    margin-top: 30px;
+}
+
+#content2 .tab_menu {}
+
+#content2 .tab_btn {}
+
+#content2 .tab_btn ul {}
+
+#content2 .tab_btn ul li {
+    float: left;
+    margin-right: 15px;
+}
+
+#content2 .tab_btn ul li.active a {
+    color: #000;
+}
+
+#content2 .tab_btn ul li a {
+    color: #999;
+    font-size: 24px;
+    /* 인라인요소는 padding, margindml 상하는 적용이 안됨 */
+    padding-bottom: 10px;
+    display: block;
+}
+
+/* tab_cont */
+#content2 .tab_cont {}
+
+#content2 .tab_cont>div figure {
+    float: left;
+    width: 32%;
+    margin-right: 2%;
+}
+
+#content2 .tab_cont>div {
+    overflow: hidden;
+}
+
+/* float으로 깨짐현상 막기
+1.clear:both
+2.overflow:hidden
+3.부모에게 강제로 높이값 주기 */
+#content2 .tab_cont>div figure:last-child {
+    margin-right: 0;
+}
+
+#content2 .tab_cont>div figure img {
+    width: 100%;
+}
+
+#content2 .tab_cont>div figure figcaption {}
+
+/* footer */
+
+#footer {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #202020;
+    overflow: hidden;
+}
+
+#footer h2 {
+    float: left;
+}
+
+#footer h2 img {
+    width: 150px;
+}
+
+#footer .foot {
+    float: right;
+}
+
+#footer .foot ul {
+    padding-bottom: 10px;
+}
+
+#footer .foot ul li {
+    display: inline;
+}
+
+#footer .foot ul li a {
+    color: #fff;
+}
+
+#footer .foot address {
+    color: #ccc;
+    font-style: normal;
+}
+
+/* layer팝업 */
+.layer-bg {
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    /* --> width: 100%; height: 100%; */
+    background-color: rgba(0, 0, 0, .8);
+}
+
+.layer-bg .layer {
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+}
+
+.layer-bg .layer h2 {}
+
+.layer-bg .layer .close {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
+
+.layer-bg .layer a {}
